@@ -63,7 +63,7 @@ Selecionar a opção `"Separate /home, /var, and /tmp partitions"` durante a ins
    
   <strong> A criptografia de disco é uma camada de segurança adicional que protege os dados no disco contra acesso não autorizado. </strong><br>
 ⚠️ Comando utilizado para que possamos verificar o particionamento do disco: **`lsblk`**
-
+<br><br>
 <h3 #AppArmor_UFW_SSHP> • 🛡️ AppArmor, UFW, SSH: </h3>
 
 **O que é AppArmor?**
