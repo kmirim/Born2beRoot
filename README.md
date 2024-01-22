@@ -73,7 +73,7 @@ Possiveis motivos para optar pelo AppArmor ao invés do SELinux?
     - AppArmor adota um modelo de perfil mais simplificado em comparação com o SELinux. Os perfis do AppArmor são geralmente mais fáceis de criar e entender, o que pode ser uma vantagem para administradores menos familiarizados com controles de acesso obrigatório.
     - É uma integração padrão em algumas distribuições, como: Ubuntu.
 
-**E como o AppArmor funciona?**
+**Como o AppArmor funciona?**
 
   - Segurança Baseada em Perfil:
         O AppArmor funciona com base em perfis. Cada aplicativo ou processo em execução no sistema tem um perfil associado que define os recursos e permissões que ele pode acessar.
@@ -104,3 +104,47 @@ Possiveis motivos para optar pelo AppArmor ao invés do SELinux?
 Ao confinar aplicativos a perfis de segurança bem definidos, o AppArmor aprimora a segurança geral do sistema, minimizando o impacto potencial de vulnerabilidades de segurança em aplicativos individuais. É uma ferramenta eficaz para melhorar a postura de segurança de sistemas Linux.
 
 ⚠️ Comando utilizado para que possamos verificar se o serviço esta ativo: **`systemctl status apparmor`**
+
+<h6> AppArmor tem relação com hostname, user e groups? </h6>
+
+AppArmor (Application Armor) é um sistema de controle de acesso obrigatório (MAC - Mandatory Access Control) para sistemas Linux. Ao contrário do controle de acesso discricionário (DAC - Discretionary Access Control), onde os usuários têm controle sobre seus próprios objetos e arquivos, o MAC é um modelo de segurança mais restritivo e centralizado.
+
+No contexto do Linux, que tradicionalmente utiliza o DAC, AppArmor adiciona uma camada adicional de controle de acesso baseada em perfis de aplicativos. 
+
+Usuários e grupos são usados no GNU/Linux para [controle de acesso](https://en.wikipedia.org/wiki/pt:Controle_de_acesso#Na_seguran.C3.A7a_da_informa.C3.A7.C3.A3o) — isto é, para controlar o acesso aos arquivos, diretórios e periféricos do sistema.
+
+**Em resumo, AppArmor não está diretamente vinculado aos conceitos tradicionais de usuários e grupos no Linux, como acontece com o controle de acesso discricionário.**
+
+  - DAC é um sistema de controle de acesso discricionário: é mais tradicional e baseado em permissões associadas aos usuários e grupos. Ele permite que os usuários determinem quem pode acessar seus próprios arquivos e recursos.
+
+- `root` é o `superusuário`
+- Usuários não privilegiados podem utilizar o `su` ou `sudo` para escalar privilégios controlados.
+
+E o que é `hostname`: É o nome único atribuído a um computador ou sistema na rede. No caso, o hostname é *******meuuser42*******
+
+E `username`: é o nome associado a uma conta de usuário, e o username pode ser qualquer um, escolhi ********meuuser.********
+
+- **Comando para adicionar novo usuário:** `adduser -m -s /bin/bash *nomedousuário*`
+- Como verificar quais usuários existem: **`whoami`**
+- Como remover um usuário: `userdel *nomedousuario*`
+    - `sudo userdel -r *nomedousuario` para que seja apagado o diretório home e o conteúdo associado.*
+- Comando para definir uma senha para o *novousuário `passwd nomedousuario`*
+
+**O que é UFW?**
+
+- Uncomplicated Firewall: é uma ferramenta de firewall para sistemas operacionais baseados em Linux. Ele foi projetado para simplificar o processo de configuração e gerenciamento de firewalls, tornando-o mais acessível para usuários iniciantes.
+- Por baixo dos panos, o UFW utiliza o iptables, que é uma infraestrutura mais complexa e poderosa para configurar firewalls no Linux. O UFW, portanto, age como uma camada mais amigável e simplificada sobre o iptables.
+    - O iptables é uma ferramenta de linha de comando usada para configurar as regras do firewall no sistema operacional Linux. Ele é parte integrante do conjunto de ferramentas do Netfilter, que é a estrutura de filtragem de pacotes no kernel do Linux. O iptables permite que os administradores de sistema configurem regras que determinam como o tráfego de rede deve ser tratado, como permitir ou bloquear determinadas conexões.
+
+- Para verificar que esta **ativo**: `sudo ufw status`
+- Para verificar a **numeração da porta**: `sudo ufw status numbered`
+- Para **abrir** uma porta: `sudo ufw allow *numero-da-porta*`
+- Para **deletar** uma porta: `sudo ufw delete *numero-da-porta*`
+
+  
+
+
+
+
+- Para configurar a chave ssh é necessario editar o arquivo ssh que fica localizado: `etc/ssh/sshd_confi`
+
