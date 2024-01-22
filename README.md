@@ -162,6 +162,36 @@ Ex de utilização:
  - Verificar o status do serviço SSH: `sudo systemctl status ssh`
  - Para configurar a chave ssh é necessario editar o arquivo ssh que fica localizado: `etc/ssh/sshd_confi`
 
+<h4> Configuração de senha: </h4>
+
+- Instalar a biblioteca `libpam-pwquality` para configurar senha: `sudo apt-get install libpam-pwquality`
+- Como **alterar a politica de senha:** `sudo nano /etc/pam.d/common-password`
+- Outra forma: `etc/security/pwquality.conf`
+- Alteração: `password  requisite     pam_pwquality.so  retry=3 minlen=10 ucredit=-1 lcredit=-1 dcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root`
+    1. **`password`:**
+        - Este é o tipo de controle PAM que está sendo configurado, especificamente para tratamento de senhas.
+    2. **`requisite`:**
+        - Indica que esta etapa é crucial para a autenticação ter sucesso. Se a verificação da senha falhar nesta etapa, a autenticação falhará.
+    3. **`pam_pwquality.so`:**
+        - Especifica o uso do módulo `pam_pwquality.so`, que fornece funcionalidades para impor políticas de qualidade de senha.
+    4. **`retry=3`:**
+        - Permite até 3 tentativas de entrada de senha antes de retornar uma falha na autenticação. Se o usuário errar a senha três vezes, o processo de autenticação falhará.
+    5. **`minlen=10`:**
+        - Define um comprimento mínimo de senha de 10 caracteres. Ou seja, as senhas precisam ter pelo menos 10 caracteres de comprimento para atender a essa política.
+    6. **`ucredit=-1 lcredit=-1 dcredit=-1`:**
+        - Estabelece políticas de complexidade de senha:
+            - `ucredit`: Pelo menos uma letra maiúscula (`1` significa que é permitido pelo menos uma).
+            - `lcredit`: Pelo menos uma letra minúscula.
+            - `dcredit`: Pelo menos um dígito.
+    7. **`maxrepeat=3`:**
+        - Restringe a repetição de caracteres consecutivos na senha a 3. Isso ajuda a evitar sequências óbvias, como "12345" ou "abcdef".
+    8. **`reject_username`:**
+        - Não permite que o nome do usuário seja parte da senha. Isso é uma medida de segurança para evitar senhas previsíveis.
+    9. **`difok=7`:**
+        - Define o número mínimo de caracteres diferentes entre a nova senha e a senha antiga (caso o usuário esteja alterando a senha). Neste caso, são necessários pelo menos 7 caracteres diferentes.
+    10. **`enforce_for_root`:**
+        - Aplica essas políticas mesmo para o usuário root. Isso é útil para garantir que até mesmo o superusuário esteja sujeito a políticas de senha rigorosas.
+
 <h3 #Apt_and_aptitude> • 📥 Apt and aptitude </h3>
 
   - Aptitude é um gerenciador de pacotes de nível superior, enquanto APT é um gerenciador de pacotes de nível inferior que pode ser usado por outros gerenciadores de pacotes de nível superior.
@@ -174,8 +204,16 @@ comando, enquanto o Aptitude ser uma ferramenta de nível superior tem uma inter
 
   - Script de shell é um programa que consiste em uma sequência de comandos que podem ser executados diretamente no prompt de comando. Esses scripts são usados para automatizar tarefas, realizar operações específicas no sistema operacional, ou agrupar uma série de comandos em um único arquivo para facilitar a execução.
     - Nesse projeto é utilizado para implementar o monitoring.sh, o script solicitado na parte mandatória.
+    - O diretório `/usr/local/bin` é uma localização comum para armazenar executáveis (programas ou scripts executáveis) em sistemas Unix/Linux. Ao criar um arquivo nesse caminho, você está colocando um executável em um local acessível globalmente no sistema.
+   
+<h3 #Signature> • ✒️ Signature</h3>
 
-  - Aqui iremos verificar o arquivo sh escrito para realizar a rotina solicitada no projeto:
-    - 
-      
+  - É preciso entregar um arquivo signature.txt na raiz do meu repositório.
+    - A assinatura é feita através de um **hash** que é utilizado para garantir a autenticidade do arquivo. Esse código é gerado a partir do comando `**sha1sum**` + seleção do arquivo `maquina-virtual.dvi`
+  - O código gerado é o que deve estar no arquivo .txt.
 
+
+
+
+
+  
