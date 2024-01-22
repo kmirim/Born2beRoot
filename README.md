@@ -16,8 +16,8 @@
   <a href="#Apt_and_aptitude">Apt and aptitude</a> • 
   <a href="#Shell_Script">Shell Script</a> • 
   <a href="#Signature">Signature</a> • 
-  <a href="#File_manipulation">File manipulation commands</a> •
-  <a href="#Vim">Vim</a> 
+  <a href="#File_manipulation">File manipulation commands</a><br>•
+  <a href="#System_information_gathering_commands">System Information Gathering Commands</a>
 </p><br><br>
 
 <h3 #Goal> • 📍 Goal: </h3>
@@ -228,15 +228,13 @@ comando, enquanto o Aptitude ser uma ferramenta de nível superior tem uma inter
 - `-i` para desconsiderar a diferença entre letras maiúsculas e minúsculas
 O metacaracter é um caractere que tem um significado especial ou uma função além de seu valor literal. `^` significa **início de linha**.
 - Visualizar apenas **diretórios**
-- Então:
     
     ```nasm
     ls -l /etc/ | grep ^d
     ```
     
 - Se eu desejo verificar tudo que não é diretório
-    - Então
-    
+  
     ```nasm
     ls -l /etc/ | grep ^d -v
     ```
@@ -257,11 +255,7 @@ O metacaracter é um caractere que tem um significado especial ou uma função a
     
     -f = campo 
     
-    E por ultimo, 
-    
-    arquivo
-    
-    Trocar
+    Trocar:
     
     ```jsx
     tr 
@@ -271,19 +265,19 @@ O metacaracter é um caractere que tem um significado especial ou uma função a
     
     Se incluir a flag `d` deleta o caracter indicado
     
-    Para ordenar
+    Para ordenar:
     
     ```jsx
     sort
     ```
     
-    Para aparecer somente um 
+    Para aparecer somente um:
     
     ```jsx
     unic
     ```
     
-    Sintaxe do awk 
+    Sintaxe do awk:
     
     ```jsx
     awk '/exemplo/ { print }' arquivo.txt
@@ -296,7 +290,7 @@ O metacaracter é um caractere que tem um significado especial ou uma função a
     ```
     
     <aside>
-    Compactadores
+    Compactadores:
     
     </aside>
     
@@ -342,5 +336,89 @@ como dados de entrada no comando seguinte.
 - Para criar uma pasta com subdiretórios: mkdir nome-da-pasta/{nome-da-subpasta{nome-da-outra-subpasta},nome-da-subpasta}
 - Comando `dmesg` (display message - from kernel ring buffer):  exibe as mensagens do buffer do Kernel, contendo módulos (drivers) e dispositivos de hardware carregados após a inicialização. 
 
+<h3 #System_information_gathering_commands> • 🛠️ System Information Gathering Commands </h3>
 
+`uname`: Exibe informações sobre o sistema instalado, incluindo a versão do
+Kernel
+• Ex.: `uname -a`
+• O parâmetro “-a” (all) exibe todas as informações disponíveis
+
+`uptime`: Exibe um resumo de informações sobre o sistema como:
+• Hora atual;
+• Tempo que o sistema está em execução (“up”, “no ar”);
+• Quantidade de usuários logados;
+• “Load Average”, que mostra quantos processos em média estão aguardando (na fila) para serem
+executados, sendo que as separações por “vírgula” representam os intervalos de tempo de 1, 5
+e 15 minutos.
+
+`free` : Exibe informações sobre a utilização da memória RAM e SWAP.
+• Ex.: free -m
+• O parâmetro “-m” exibe a utilização em MB, da mesma forma que “-g” ou “-k” podem ser utilizados para exibição em GB e KB respectivamente.
+
+- Podemos executar o “free -s 10”, para atualizar o status do consumo de memória a cada 10
+segundos.
+
+`df` : Exibe informações sobre o espaço livre/utilizado em disco:
+• Ex.: df -h
+• O parâmetro “-h” exibe de forma “inteligível” (humam readable).
+`du` : Exibe o tamanho ocupado em disco de arquivos ou diretórios:
+• Ex.: du -hs /etc
+• O parâmetro “-s” exibe o tamanho total ocupado pelo diretório “/etc”;
+• O parâmetro “-h” exibe de forma “inteligível” (humam readable).
+
+`file`: Exibe o tipo de um determinado arquivo (se o mesmo é texto, imagem,
+arquivo compactado, entre outros).
+• Ex.: file <nome_do_arquivo>
+
+`w` : Exibe a saída do comando “uptime” e informações sobre os usuários
+conectados, como tempo ocioso e processo que este usuário está executando.
+
+`who` : Exibe quais usuários estão logados no sistema, qual o “terminal” este
+usuário está conectado, data e hora do Logon, e por fim, o IP de origem desta
+conexão (caso seja uma conexão remota).
+
+`whoami` : Exibe qual o nome do usuário logado no terminal atual
+
+`ifconfig` : Permite verificar o IP atual ou configurar um IP para um determinado
+adaptador de rede:
+• Ex.: ifconfig <interface>
+
+- route : Permite visualizar ou modificar rotas ou o “Default Gateway”:
+• Ex.: route add default gw [X.X.X.X]
+- Ex.: route -n
+• Apenas exibe as rotas existentes;
+- O comando “ip” possui diversas opções (chamadas de objetos), que permite ver e
+alterar configurações de rede, roteamento e tunelamento.
+- A principal utilidade do comando é definir um endereço IP. Segue exemplo:
+• Listando as interfaces. Ex.: ip address ou ip addr list ou ip addr
+
+- A remoção de um endereço IP possui sintaxe similar, tendo duas possibilidades:
+• Remover todos os endereços de uma interface (caso tenha mais de um IP):
+• Ex.: ip address flush dev enp0s3
+• Remover apenas um endereço da interface “enp0s3”:
+• Ex.: ip address del x.x.x.x/mask dev <interface>
+
+`dmesg` : exibe todo o Hardware reconhecido/carregado pelo kernel durante a
+inicialização.
+
+`lspci` : exibe informações do chipset e dispositivos PCI:
+
+`lsusb` : exibe informações sobre dispositivos USB conectado
+
+  - Instalar/desinstalar dispositivos que o sistema não reconheça automaticamente, devemos realizar o download do módulo (driver) do dispositivo a ser instalado e utilizar os comandos abaixo:
+    - exibe os módulos (drivers) carregados no sistema: `lsmod`
+  - Instala/carrega um novo módulo no Kernel: `insmod`
+      - Ex.: `insmod [arquivo] <opções>`
+  - Remove um módulo: `rmmo` (devemos ter cautela na realização do mesmo, tendo em vista que ao remover um módulo, “desativamos” o hardware associado ao módulo)
+      - Ex.: `rmmod <nome_do_modulo>`
+  - listar todos os dispositivos de armazenamento conectados em nosso computador:
+      - Ex.: fdisk -l
   
+  - O diretório `/proc` é um diretório virtual do sistema Linux com algumas características importantes:
+    - É um diretório utilizado exclusivamente pelo kernel para gerenciamento do sistema e seus recursos;
+    - Existe apenas enquanto o computador está ligado;
+    - Possui diversos arquivos com o tamanho de 0 bytes, porém, podemos encontrar conteúdos nestes arquivos;
+    - O maior arquivo deste diretório se chama “kcore”, que possui tamanho próximo ao disponível na memória RAM;
+    - Não podemos gravar ou criar arquivos neste diretório.
+
+
