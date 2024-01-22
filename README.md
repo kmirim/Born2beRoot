@@ -115,18 +115,18 @@ Usuários e grupos são usados no GNU/Linux para [controle de acesso](https://en
 
 **Em resumo, AppArmor não está diretamente vinculado aos conceitos tradicionais de usuários e grupos no Linux, como acontece com o controle de acesso discricionário.**
 
-  - DAC é um sistema de controle de acesso discricionário: é mais tradicional e baseado em permissões associadas aos usuários e grupos. Ele permite que os usuários determinem quem pode acessar seus próprios arquivos e recursos.
+  - DAC é mais tradicional e baseado em permissões associadas aos usuários e grupos. Ele permite que os usuários determinem quem pode acessar seus próprios arquivos e recursos.
 
 - `root` é o `superusuário`
 - Usuários não privilegiados podem utilizar o `su` ou `sudo` para escalar privilégios controlados.
 
-E o que é `hostname`: É o nome único atribuído a um computador ou sistema na rede. No caso, o hostname é *******meuuser42*******
+E o que é `hostname`: É o nome único atribuído a um computador ou sistema na rede. No caso, o hostname é **meuuser42**
 
-E `username`: é o nome associado a uma conta de usuário, e o username pode ser qualquer um, escolhi ********meuuser.********
+E `username`: é o nome associado a uma conta de usuário, e o username pode ser qualquer um, escolhi **meuuser.**
 
 - **Comando para adicionar novo usuário:** `adduser -m -s /bin/bash *nomedousuário*`
 - Como verificar quais usuários existem: **`whoami`**
-- Como remover um usuário: `userdel *nomedousuario*`
+- Como **remover** um usuário: `userdel *nomedousuario*`
     - `sudo userdel -r *nomedousuario` para que seja apagado o diretório home e o conteúdo associado.*
 - Comando para definir uma senha para o *novousuário `passwd nomedousuario`*
 
@@ -141,10 +141,24 @@ E `username`: é o nome associado a uma conta de usuário, e o username pode ser
 - Para **abrir** uma porta: `sudo ufw allow *numero-da-porta*`
 - Para **deletar** uma porta: `sudo ufw delete *numero-da-porta*`
 
-  
+**O que é SSH?**
 
+O Secure Shell (SSH) é um protocolo de rede criptografado usado para comunicação segura entre um cliente e um servidor. Ele fornece uma maneira segura de acessar serviços de rede sobre uma rede não segura, como a Internet. O SSH oferece autenticação forte, comunicação criptografada e integridade de dados para garantir a segurança das informações transmitidas entre os sistemas.
 
+Ex de utilização: 
 
+- **Encaminhamento de Porta:**
+    - SSH pode ser usado para criar túneis seguros, encaminhando tráfego de uma porta local para uma porta remota. Isso é útil para acessar serviços em máquinas remotas de forma segura.
+    - **Um serviço SSH estará em execução apenas na porta 4242. Por razões de segurança, não deve ser possível conectar-se usando SSH como root.**
+        - Restringir o acesso SSH a contas não privilegiadas adiciona uma camada extra de segurança contra esses ataques.
+        - Quando os usuários se conectam inicialmente com uma conta não privilegiada, é mais fácil rastrear e registrar as atividades associadas a essa conta. Conectar-se como root diretamente pode complicar o rastreamento, especialmente em ambientes com vários administradores.
+        - **Acesso Granular:** A autenticação em duas etapas, como primeiro fazer login como usuário não privilegiado e, em seguida, usar `sudo`
+         para realizar tarefas administrativas, permite um controle mais 
+        granular sobre quem pode realizar ações administrativas. Isso é útil em 
+        ambientes compartilhados ou com várias pessoas gerenciando o sistema.
 
-- Para configurar a chave ssh é necessario editar o arquivo ssh que fica localizado: `etc/ssh/sshd_confi`
+ - Como acessar a VM pelo SSH: `ssh nome-do-user@ip-da-maquina -p numero-da-porta`
+ - Para acessar o ip da máquina podemos utilizar: `hostname -I (i maiúsculo)`
+ - Verificar o status do serviço SSH: `sudo systemctl status ssh`
+ - Para configurar a chave ssh é necessario editar o arquivo ssh que fica localizado: `etc/ssh/sshd_confi`
 
