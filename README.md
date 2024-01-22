@@ -28,7 +28,7 @@
 <div id="Virtualization" />
 <h3 #Vitualization> • 🖥️ Virtualization </h2>
 <p>
-  Virtualização <strong>é a tecnologia que você pode usar para criar representações virtuais de servidores, armazenamento, redes e outras máquinas físicas.
+  Virtualização é a tecnologia que você pode usar para criar representações virtuais de servidores, armazenamento, redes e outras máquinas físicas.
 
 <div id="LVM" />
 <h3 #LVM> • 💽 LVM </h3>
