@@ -383,15 +383,16 @@ conexão (caso seja uma conexão remota).
 adaptador de rede:
 • Ex.: ifconfig <interface>
 
-- route : Permite visualizar ou modificar rotas ou o “Default Gateway”:
-• Ex.: route add default gw [X.X.X.X]
-- Ex.: route -n
-• Apenas exibe as rotas existentes;
-- O comando “ip” possui diversas opções (chamadas de objetos), que permite ver e
+- `route`: Permite visualizar ou modificar rotas ou o “Default Gateway”:
+  • Ex.: route add default gw [X.X.X.X]
+  • Ex.: route -n
+  • Exibe apenas as rotas existentes;
+  
+- O comando `ip` possui diversas opções (chamadas de objetos), que permite ver e
 alterar configurações de rede, roteamento e tunelamento.
-- A principal utilidade do comando é definir um endereço IP. Segue exemplo:
-• Listando as interfaces. Ex.: ip address ou ip addr list ou ip addr
-
+- A principal utilidade do comando é definir um endereço IP.
+• Listando as interfaces.
+  Ex.: ip address ou ip addr list ou ip addr
 - A remoção de um endereço IP possui sintaxe similar, tendo duas possibilidades:
 • Remover todos os endereços de uma interface (caso tenha mais de um IP):
 • Ex.: ip address flush dev enp0s3
