@@ -20,15 +20,14 @@
   <a href="#System_information_gathering_commands">System Information Gathering Commands</a>
 </p><br><br>
 
-<h3 #Goal> • 📍 Goal: </h3>
+<h3 #Goal> • 📍 Goal </h3>
 <p>The goal of this project is to teach how to set up my first server. It's not only my first experience configuring a server, but also my first experience installing a Linux operating system.</p><br>
 <p> ⚠️ Starting from now, I will also write the notes in Portuguese to make it more accessible, considering that most of the material on the internet is in English. </p><br><br>
-<h3 #Vitualization> • 🖥️ Virtualization: </h2>
+<h3 #Vitualization> • 🖥️ Virtualization </h2>
 <p>
-  <strong>PT:</strong> Virtualização <strong>é a tecnologia que você pode usar para criar representações virtuais de 
-servidores, armazenamento, redes e outras máquinas físicas</strong>.
+  Virtualização <strong>é a tecnologia que você pode usar para criar representações virtuais de servidores, armazenamento, redes e outras máquinas físicas.
 
-<h3 #LVM> • 💽 LVM: </h3>
+<h3 #LVM> • 💽 LVM </h3>
 
 Logical Volume Manager ou gerenciador de volume lógico <br>
 
@@ -62,7 +61,7 @@ Selecionar a opção `"Separate /home, /var, and /tmp partitions"` durante a ins
   <strong> A criptografia de disco é uma camada de segurança adicional que protege os dados no disco contra acesso não autorizado. </strong><br>
 ⚠️ Comando utilizado para que possamos verificar o particionamento do disco: **`lsblk`**
 <br><br>
-<h3 #AppArmor_UFW_SSHP> • 🛡️ AppArmor, UFW, SSH: </h3>
+<h3 #AppArmor_UFW_SSHP> • 🛡️ AppArmor, UFW, SSH </h3>
 
 **1. O que é AppArmor?**
 
