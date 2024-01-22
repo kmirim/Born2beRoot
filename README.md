@@ -27,8 +27,6 @@
 <p>
   <strong>PT:</strong> Virtualização <strong>é a tecnologia que você pode usar para criar representações virtuais de 
 servidores, armazenamento, redes e outras máquinas físicas</strong>.
-  <strong>EN:</strong> Virtualization <strong>is the technology you can use to create virtual representations of servers, storage, networks, and other physical machines</strong>.<br><br>
-</p>
 
 <h3 #LVM> • 💽 LVM: </h3>
 
