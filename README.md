@@ -20,9 +20,12 @@
   <a href="#System_information_gathering_commands">System Information Gathering Commands</a>
 </p><br><br>
 
+<div id="Goal" />
 <h3 #Goal> • 📍 Goal </h3>
 <p>The goal of this project is to teach how to set up my first server. It's not only my first experience configuring a server, but also my first experience installing a Linux operating system.</p><br>
 <p> ⚠️ Starting from now, I will also write the notes in Portuguese to make it more accessible, considering that most of the material on the internet is in English. </p><br><br>
+  
+<div id="Vitualization" />
 <h3 #Vitualization> • 🖥️ Virtualization </h2>
 <p>
   Virtualização <strong>é a tecnologia que você pode usar para criar representações virtuais de servidores, armazenamento, redes e outras máquinas físicas.
