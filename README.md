@@ -30,6 +30,7 @@
 <p>
   Virtualização <strong>é a tecnologia que você pode usar para criar representações virtuais de servidores, armazenamento, redes e outras máquinas físicas.
 
+<div id="LVM" />
 <h3 #LVM> • 💽 LVM </h3>
 
 Logical Volume Manager ou gerenciador de volume lógico <br>
