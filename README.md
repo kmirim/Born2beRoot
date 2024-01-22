@@ -162,3 +162,20 @@ Ex de utilização:
  - Verificar o status do serviço SSH: `sudo systemctl status ssh`
  - Para configurar a chave ssh é necessario editar o arquivo ssh que fica localizado: `etc/ssh/sshd_confi`
 
+<h3 #Apt_and_aptitude> • 📥 Apt and aptitude </h3>
+
+  - Aptitude é um gerenciador de pacotes de nível superior, enquanto APT é um gerenciador de pacotes de nível inferior que pode ser usado por outros gerenciadores de pacotes de nível superior.
+  - O Aptitude é mais vasto em funcionalidades do que o apt-get e integra funcionalidades do apt-get e suas outras variantes, incluindo apt-mark e apt-cache.
+    - Em sistemas operacionais Debian é utilizado o comando `apt-get` para gerenciar pacotes de software.
+**O Apt-get** ser um gerenciador de pacotes de nível inferior é restrito apenas à linha de 
+comando, enquanto o Aptitude ser uma ferramenta de nível superior tem uma interface interativa padrão apenas em texto, juntamente com a opção de operação de linha de comando, inserindo os comandos necessários.
+
+<h3 #Shell_Script> • 🐧 Shell Script</h3>
+
+  - Script de shell é um programa que consiste em uma sequência de comandos que podem ser executados diretamente no prompt de comando. Esses scripts são usados para automatizar tarefas, realizar operações específicas no sistema operacional, ou agrupar uma série de comandos em um único arquivo para facilitar a execução.
+    - Nesse projeto é utilizado para implementar o monitoring.sh, o script solicitado na parte mandatória.
+
+  - Aqui iremos verificar o arquivo sh escrito para realizar a rotina solicitada no projeto:
+    - 
+      
+
