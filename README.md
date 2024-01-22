@@ -241,9 +241,9 @@ O metacaracter é um caractere que tem um significado especial ou uma função a
     ls -l /etc/ | grep ^d -v
     ```
     
-    filtros de conteudo: 
+    Filtros de conteúdo: 
     
-    contador de palavras: wc e outro é nl (contabiliza por espaço)
+    Contador de palavras: wc e outro é nl (contabiliza por espaço)
     
     Recortar:
     
@@ -257,7 +257,7 @@ O metacaracter é um caractere que tem um significado especial ou uma função a
     
     -f = campo 
     
-    e por ultimo, 
+    E por ultimo, 
     
     arquivo
     
@@ -267,36 +267,36 @@ O metacaracter é um caractere que tem um significado especial ou uma função a
     tr 
     ```
     
-    primeiro qual o char, segundo pelo que substituir
+    Primeiro qual o char, segundo pelo que substituir
     
-    se incluir a flag `d` deleta o caracter indicado
+    Se incluir a flag `d` deleta o caracter indicado
     
-    para ordenar
+    Para ordenar
     
     ```jsx
     sort
     ```
     
-    para aparecer somente um 
+    Para aparecer somente um 
     
     ```jsx
     unic
     ```
     
-    sintaxe do awk 
+    Sintaxe do awk 
     
     ```jsx
     awk '/exemplo/ { print }' arquivo.txt
     ```
     
-    para comparar:
+    Para comparar:
     
     ```jsx
     diff primeiro-arquivo segundo-arquivo
     ```
     
     <aside>
-    💡 Compactadores
+    Compactadores
     
     </aside>
     
