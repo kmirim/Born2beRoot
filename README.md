@@ -25,7 +25,7 @@
 <p>The goal of this project is to teach how to set up my first server. It's not only my first experience configuring a server, but also my first experience installing a Linux operating system.</p><br>
 <p> ⚠️ Starting from now, I will also write the notes in Portuguese to make it more accessible, considering that most of the material on the internet is in English. </p><br><br>
   
-<div id="Vitualization" />
+<div id="Virtualization" />
 <h3 #Vitualization> • 🖥️ Virtualization </h2>
 <p>
   Virtualização <strong>é a tecnologia que você pode usar para criar representações virtuais de servidores, armazenamento, redes e outras máquinas físicas.
@@ -65,6 +65,7 @@ Selecionar a opção `"Separate /home, /var, and /tmp partitions"` durante a ins
   <strong> A criptografia de disco é uma camada de segurança adicional que protege os dados no disco contra acesso não autorizado. </strong><br>
 ⚠️ Comando utilizado para que possamos verificar o particionamento do disco: **`lsblk`**
 <br><br>
+<div id="AppArmor_UFW_SSHP" />
 <h3 #AppArmor_UFW_SSHP> • 🛡️ AppArmor, UFW, SSH </h3>
 
 **1. O que é AppArmor?**
@@ -165,7 +166,7 @@ Ex de utilização:
  - Verificar o status do serviço SSH: `sudo systemctl status ssh`
  - Para configurar a chave ssh é necessario editar o arquivo ssh que fica localizado: `etc/ssh/sshd_confi`
 
-<h4> Configuração de senha: </h4>
+<h4> Configuração de senha </h4>
 
 - Instalar a biblioteca `libpam-pwquality` para configurar senha: `sudo apt-get install libpam-pwquality`
 - Como **alterar a politica de senha:** `sudo nano /etc/pam.d/common-password`
@@ -195,6 +196,7 @@ Ex de utilização:
     10. **`enforce_for_root`:**
         - Aplica essas políticas mesmo para o usuário root. Isso é útil para garantir que até mesmo o superusuário esteja sujeito a políticas de senha rigorosas.
 
+<div id="Apt_and_aptitude" />
 <h3 #Apt_and_aptitude> • 📥 Apt and aptitude </h3>
 
   - Aptitude é um gerenciador de pacotes de nível superior, enquanto APT é um gerenciador de pacotes de nível inferior que pode ser usado por outros gerenciadores de pacotes de nível superior.
@@ -203,18 +205,21 @@ Ex de utilização:
 **O Apt-get** ser um gerenciador de pacotes de nível inferior é restrito apenas à linha de 
 comando, enquanto o Aptitude ser uma ferramenta de nível superior tem uma interface interativa padrão apenas em texto, juntamente com a opção de operação de linha de comando, inserindo os comandos necessários.
 
+<div id="Shell_Script" />
 <h3 #Shell_Script> • 🐧 Shell Script</h3>
 
   - Script de shell é um programa que consiste em uma sequência de comandos que podem ser executados diretamente no prompt de comando. Esses scripts são usados para automatizar tarefas, realizar operações específicas no sistema operacional, ou agrupar uma série de comandos em um único arquivo para facilitar a execução.
     - Nesse projeto é utilizado para implementar o monitoring.sh, o script solicitado na parte mandatória.
     - O diretório `/usr/local/bin` é uma localização comum para armazenar executáveis (programas ou scripts executáveis) em sistemas Unix/Linux. Ao criar um arquivo nesse caminho, você está colocando um executável em um local acessível globalmente no sistema.
-   
+
+<div id="Signature" />   
 <h3 #Signature> • ✒️ Signature</h3>
 
   - É preciso entregar um arquivo signature.txt na raiz do meu repositório.
     - A assinatura é feita através de um **hash** que é utilizado para garantir a autenticidade do arquivo. Esse código é gerado a partir do comando `**sha1sum**` + seleção do arquivo `maquina-virtual.dvi`
   - O código gerado é o que deve estar no arquivo .txt.
 
+<div id="File_manipulation" /> 
 <h3 #File_manipulation> • 📄 File manipulation commands</h3>
 
 - `Touch` : cria arquivos ASCII
@@ -339,6 +344,7 @@ como dados de entrada no comando seguinte.
 - Para criar uma pasta com subdiretórios: mkdir nome-da-pasta/{nome-da-subpasta{nome-da-outra-subpasta},nome-da-subpasta}
 - Comando `dmesg` (display message - from kernel ring buffer):  exibe as mensagens do buffer do Kernel, contendo módulos (drivers) e dispositivos de hardware carregados após a inicialização. 
 
+<div id="System_information_gathering_commands" /> 
 <h3 #System_information_gathering_commands> • 🛠️ System Information Gathering Commands </h3>
 
 `uname`: Exibe informações sobre o sistema instalado, incluindo a versão do
