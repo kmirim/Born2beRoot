@@ -48,7 +48,7 @@ LVM é uma tecnologia que oferece uma camada de abstração sobre os discos fís
 
 Selecionar a opção `"Separate /home, /var, and /tmp partitions"` durante a instalação de um sistema operacional Linux, como no Debian, refere-se à escolha de configurar partições separadas para diretórios específicos do sistema, em vez de colocar todos os diretórios no mesmo sistema de arquivos. Essa escolha oferece benefícios em termos de organização, desempenho e, em alguns casos, recuperação de dados.
 
-1. **Separate (/home, /var, and /tmp) partitions:**
+ - **Separate (/home, /var, and /tmp) partitions:**
     - **/home:** O diretório **`/home`** contém os diretórios pessoais dos usuários. Ao separar isso em uma partição dedicada, os dados do usuário podem ser preservados, mesmo se você precisar reinstalar o sistema operacional. Isso facilita a atualização ou reinstalação sem perder dados pessoais.
     - **/var:** O diretório **`/var`** armazena dados variáveis, como logs, caches e arquivos temporários. Manter isso em uma partição separada pode ajudar a evitar problemas de espaço em disco se ocorrerem muitas gravações frequentes de logs ou outros dados variáveis.
     - **/tmp:** O diretório **`/tmp`** é usado para armazenar arquivos temporários. Ter uma partição separada para **`/tmp`** pode fornecer benefícios de segurança e desempenho, pois os arquivos temporários podem ser configurados para ter permissões restritas e podem estar em uma partição montada com opções específicas.
@@ -64,7 +64,7 @@ Selecionar a opção `"Separate /home, /var, and /tmp partitions"` durante a ins
 <br><br>
 <h3 #AppArmor_UFW_SSHP> • 🛡️ AppArmor, UFW, SSH: </h3>
 
-**O que é AppArmor?**
+**1. O que é AppArmor?**
 
 AppArmor é um sistema de controle de acesso obrigatório (MAC, Mandatory Access Control), similar ao SELinux.
 Possiveis motivos para optar pelo AppArmor ao invés do SELinux?
@@ -130,7 +130,7 @@ E `username`: é o nome associado a uma conta de usuário, e o username pode ser
     - `sudo userdel -r *nomedousuario` para que seja apagado o diretório home e o conteúdo associado.*
 - Comando para definir uma senha para o *novousuário `passwd nomedousuario`*
 
-**O que é UFW?**
+**2. O que é UFW?**
 
 - Uncomplicated Firewall: é uma ferramenta de firewall para sistemas operacionais baseados em Linux. Ele foi projetado para simplificar o processo de configuração e gerenciamento de firewalls, tornando-o mais acessível para usuários iniciantes.
 - Por baixo dos panos, o UFW utiliza o iptables, que é uma infraestrutura mais complexa e poderosa para configurar firewalls no Linux. O UFW, portanto, age como uma camada mais amigável e simplificada sobre o iptables.
@@ -141,7 +141,7 @@ E `username`: é o nome associado a uma conta de usuário, e o username pode ser
 - Para **abrir** uma porta: `sudo ufw allow *numero-da-porta*`
 - Para **deletar** uma porta: `sudo ufw delete *numero-da-porta*`
 
-**O que é SSH?**
+**3. O que é SSH?**
 
 O Secure Shell (SSH) é um protocolo de rede criptografado usado para comunicação segura entre um cliente e um servidor. Ele fornece uma maneira segura de acessar serviços de rede sobre uma rede não segura, como a Internet. O SSH oferece autenticação forte, comunicação criptografada e integridade de dados para garantir a segurança das informações transmitidas entre os sistemas.
 
@@ -212,8 +212,132 @@ comando, enquanto o Aptitude ser uma ferramenta de nível superior tem uma inter
     - A assinatura é feita através de um **hash** que é utilizado para garantir a autenticidade do arquivo. Esse código é gerado a partir do comando `**sha1sum**` + seleção do arquivo `maquina-virtual.dvi`
   - O código gerado é o que deve estar no arquivo .txt.
 
+<h3 #File_manipulation> • 📄 File manipulation commands</h3>
 
+- `Touch` : cria arquivos ASCII
+- `touch -t` : define *timestamp* = uma marca temporal, um conjunto de caracteres que identifica data e hora de algo ou evento.
+- `cp` : copiar arquivos
+- `cp -r` : copiar diretórios
+    - `cp -a` : copia e altera o nome (sintaxe: `cp -a`****nome-do-arquivo nome-novo****)
+- `find` : para procurar (sintaxe: *`find local nome-do-arquivo`*)
+- `du-hs`  : espaço do disco utilizado
+- O redirecionador ">" sobrescreve o conteúdo (caso exista), enquanto o ">>" adiciona ao final do arquivo.
+- O parâmetro "-v" indica que o oposto será exibido.
+- A flag `-r`  é de: recursivo
+- A flag `-v` é para que seja feito o inverso
+- `-i` para desconsiderar a diferença entre letras maiúsculas e minúsculas
+O metacaracter é um caractere que tem um significado especial ou uma função além de seu valor literal. `^` significa **início de linha**.
+- Visualizar apenas **diretórios**
+- Então:
+    
+    ```nasm
+    ls -l /etc/ | grep ^d
+    ```
+    
+- Se eu desejo verificar tudo que não é diretório
+    - Então
+    
+    ```nasm
+    ls -l /etc/ | grep ^d -v
+    ```
+    
+    filtros de conteudo: 
+    
+    contador de palavras: wc e outro é nl (contabiliza por espaço)
+    
+    Recortar:
+    
+    ```jsx
+    	cut
+    ```
+    
+    Precisa necessariamente de alguns parâmetros: 
+    
+    -d = delimitador
+    
+    -f = campo 
+    
+    e por ultimo, 
+    
+    arquivo
+    
+    Trocar
+    
+    ```jsx
+    tr 
+    ```
+    
+    primeiro qual o char, segundo pelo que substituir
+    
+    se incluir a flag `d` deleta o caracter indicado
+    
+    para ordenar
+    
+    ```jsx
+    sort
+    ```
+    
+    para aparecer somente um 
+    
+    ```jsx
+    unic
+    ```
+    
+    sintaxe do awk 
+    
+    ```jsx
+    awk '/exemplo/ { print }' arquivo.txt
+    ```
+    
+    para comparar:
+    
+    ```jsx
+    diff primeiro-arquivo segundo-arquivo
+    ```
+    
+    <aside>
+    💡 Compactadores
+    
+    </aside>
+    
+    ```jsx
+    zip <flags> [caminho-do-arquivo][arquivo-a-ser-compactado]
+    ```
+    
+    para desempacotar
 
+**Visualizadores de texto:**
+
+- cat = Exibe na saída padrão (tela) o conteúdo de um arquivo.
+- more = Exibe na saída padrão (tela) o conteúdo de um arquivo, exibindo uma tela
+de cada vez (ideal para arquivos extensos).
+- less = Exibe na saída padrão (tela) o conteúdo de um arquivo, permitindo a
+paginação através de comandos.
+- head = Exibe na saída padrão (tela) as dez primeiras linhas de um arquivo (por
+padrão, porém, a quantidade pode ser especificada).
+- tail = Exibe na saída padrão (tela) as dez últimas linhas de um arquivo (por padrão,
+porém, a quantidade pode ser especificada).
+    - Muito utilizado para a visualização de logs.
+ 
+**Conectores de comando:**
+
+- Concatenação de comandos nada mais é do que “pegar” a saída de um comando e
+utilizá-la como “entrada” para o comando seguinte.
+- Para realizar a concatenação, devemos utilizar dutos (duto = PIPE = | )
+- Podemos solicitar a execução de diversos comandos em sequência no Linux.
+- Esta execução em sequência é diferente do processo de concatenação.
+- A execução de comandos em sequência não utiliza a saída do comando anterior
+como dados de entrada no comando seguinte.
+- Conectores e operadores são geralmente utilizados em scripts.
+**Para executar comandos em sequência, temos os seguintes conectores:**
+ - Ponto e vírgula “;” para execução de comandos em sequência:
+- Ex.: clear ; cd /etc ; cp -a services /root
+- Operador “&&” (AND), **somente executará o comando seguinte, se o anterior for executado, ou seja** caso o primeiro comando execute com sucesso (código de retorno = 0), o segundo comando também será executado:
+- Ex.: cd /Teste && rm -rf *
+- Operador “||” (OR), caso o primeiro comando não execute com sucesso (código de retorno ≠ 0), o segundo comando será executado. RESUMINDO, quando um dos comandos for executado com sucesso, os comandos seguintes não são verificados:
+- Ex.: `cd /home/Teste || mkdir /home/Teste`
+- Para criar uma pasta com subdiretórios: mkdir nome-da-pasta/{nome-da-subpasta{nome-da-outra-subpasta},nome-da-subpasta}
+- Comando `dmesg` (display message - from kernel ring buffer):  exibe as mensagens do buffer do Kernel, contendo módulos (drivers) e dispositivos de hardware carregados após a inicialização. 
 
 
   
