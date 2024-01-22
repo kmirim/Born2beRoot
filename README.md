@@ -16,8 +16,8 @@
   <a href="#Apt_and_aptitude">Apt and aptitude</a> • 
   <a href="#Shell_Script">Shell Script</a> • 
   <a href="#Signature">Signature</a><br> • 
-  <a href="#File_manipulation"> File manipulation commands</a>•
-  <a href="#System_information_gathering_commands">System Information Gathering Commands</a>
+  <a href="#File_manipulation"> File manipulation commands</a> •
+  <a href="#System_information_gathering_commands"> System Information Gathering Commands</a>
 </p><br><br>
 
 <div id="Goal" />
