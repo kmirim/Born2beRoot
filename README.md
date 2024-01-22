@@ -304,7 +304,10 @@ O metacaracter é um caractere que tem um significado especial ou uma função a
     zip <flags> [caminho-do-arquivo][arquivo-a-ser-compactado]
     ```
     
-    para desempacotar
+    Para desempacotar
+  ```jsx
+  unzip <flags> [caminho-do-arquivo][arquivo-a-ser-descompactado]
+  ```
 
 **Visualizadores de texto:**
 
